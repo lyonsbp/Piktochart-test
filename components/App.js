@@ -57,6 +57,11 @@ export default {
   <div>
     <!-- side pane -->
     <div class="sidepane col-sm-2 col-md-2 col-lg-2">
+      <div>
+        <h3>Welcome!</h3>
+        <p>Click on images or "add text" to add items. Drag items outside of the canvas to delete them.</p>
+        <p>Items will persists across page refreshes and sessions, but their positions will not.</p>
+      </div>
       <div class="form">
         <ImageUpload @updateImages="fetchImages"/>
         <!-- Upload Form here -->
