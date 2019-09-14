@@ -4,7 +4,8 @@
   "description": "package for js candidate test",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "cypress:open": "cypress open"
   },
   "author": "jun",
   "license": "ISC",
