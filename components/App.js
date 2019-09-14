@@ -38,6 +38,7 @@ export default {
     }
   },
   watch: {
+    // Watchers to save images/texts currently on the canvas to local storage
     drawnImages(val) {
       localStorage.setItem('drawnImages', JSON.stringify(val))
     },
@@ -46,7 +47,9 @@ export default {
     }
   },
   created() {
+    // Fetch list of images on initial lod
     this.fetchImages()
+    // If saved images/texts exists, pull them from local storage
     this.drawnImages = JSON.parse(localStorage.getItem('drawnImages')) || []
     this.drawnTexts = JSON.parse(localStorage.getItem('drawnTexts')) || []
   },
@@ -61,10 +64,16 @@ export default {
       <hr />
       <div class="assets">
         <h3>Assets</h3>
-          <TextList @addText="drawText" :texts="drawnTexts"/>
+          <TextList
+            @addText="drawText"
+            :texts="drawnTexts"
+          />
         <div class="image">
           <h4>Images</h4>
-          <ImageList @draw="drawImage" :images="images"/>
+          <ImageList
+            @draw="drawImage"
+            :images="images"
+          />
         </div>
       </div>
     </div>

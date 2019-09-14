@@ -31,6 +31,7 @@ export default {
       }
     },
     handleCanvasDown(event) {
+      // Only run logic if the clicked element was an image or paragraph element
       if (this.allowedElements.includes(event.target.nodeName)) {
         this.mouseIsDown = true
         this.offset.left = event.target.offsetLeft - event.clientX
@@ -52,8 +53,10 @@ export default {
       this.mouseIsDown = false
     },
     handleCanvasMove(event) {
+      // Stop default drag behavior from happening
       event.preventDefault()
       if (this.mouseIsDown) {
+        // Get current mouse position, then assign that position to the element we are moving
         let mousePosition = {
           x: event.clientX,
           y: event.clientY
@@ -64,6 +67,8 @@ export default {
     }
   },
   mounted() {
+    // Add event listeners to our canvas element.
+    // Uses event delegation as to not add extra event listeners.
     this.$refs.canvas.addEventListener('mousedown', this.handleCanvasDown)
     this.$refs.canvas.addEventListener('mouseup', this.handleCanvasUp)
     this.$refs.canvas.addEventListener('mousemove', this.handleCanvasMove)
