@@ -72,6 +72,6 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
 
-var server = app.listen(process.env.port || 8000, _ => {
+var server = app.listen(process.env.PORT || 8000, _ => {
   console.log('server started. listening to 8000')
 })
